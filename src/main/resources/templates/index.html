@@ -58,34 +58,7 @@
                 <tbody id="tableBody">
 
 
-                <!--<div th:each="user : ${users}">
-                    <tr>
-                        <td><p th:text="${user.getId()}">name</p></td>
-                        <td><p th:text="${user.getName()}">name</p></td>
-                        <td><p th:text="${user.getLast_name()}">name</p></td>
-                        <td><p th:text="${user.getAge()}">name</p></td>
-                        <td><p th:text="${user.getEmail()}">name</p></td>
-                        <td><p th:text="${user.getRoles()}">name</p></td>
 
-                        <td>
-                            <a th:href="@{users/{id}(id=${user.getId()})}" class="btn btn-info eBtn"
-                               th:attr="data-id=${user.getId()}, data-firstname=${user.getName()},
-                                      data-lastname=${user.getLast_name()}, data-age=${user.getAge()},
-                                 data-email=${user.getEmail()}, data-password=${user.getPassword()},
-                                    data-target='#editModal'+${user.getId()}"
-                               data-toggle="modal">Edit</a>
-                        </td>
-
-                        <td>
-                            <a th:href="@{admin/delete/{id}(id=${user.getId()})}" class="btn btn-danger dBtn"
-                               th:attr="data-id2=${user.getId()}, data-firstname2=${user.getName()},
-                                      data-lastname2=${user.getLast_name()}, data-age2=${user.getAge()},
-                                 data-email2=${user.getEmail()}, data-password2=${user.getPassword()},
-                                   data-target='#delModal'+${user.getId()}"
-                               data-toggle="modal">Delete</a>
-                        </td>
-                    </tr>
-                </div>-->
                 </tbody>
             </table>
 
