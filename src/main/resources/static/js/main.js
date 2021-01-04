@@ -48,10 +48,15 @@ async function getUserForEdit(id) {
     $(".editForm #password").val(user.password);
 }
 
-
-function editUser(){
+function editUser() {
     $("#eForm").submit(function (event) {
         event.preventDefault()
+
+        let role = [];
+        let arr = Array.from(document.getElementById("role").options).filter(option => option.selected).map(option => option.value)
+        for (let i = 0; i < arr.length; i++) {
+            role.push({id:arr[i]})
+        }
 
         let editedUser = {
             id: $("#id").val(),
@@ -60,9 +65,9 @@ function editUser(){
             age: $("#age").val(),
             email: $("#email").val(),
             password: $("#password").val(),
-            roles: null
-            //[{"id":1,"role":"ROLE_ADMIN"},{"id":2,"role":"ROLE_USER"}]
+            roles: role
         }
+
         fetch('/rest/admin/edit/',
             {
                 method: 'PUT',

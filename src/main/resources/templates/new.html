@@ -48,55 +48,45 @@
                 <tbody>
 
                 <div align="center">
-                    <form  th:action="@{/admin}" th:object="${user}" id="addNewUser">
+                    <form  th:action="@{/admin}"  id="addNewUser" class="addUser">
                         <div id="edit" class="row">
                             <div class="col-md-4"></div>
                             <div class="col-md-2">
 
                                 <div class="form-group">
                                     <label for="name" style="font-weight: bold; text-align: center">First name </label>
-                                    <input type="text" class="form-control" th:field="*{name}" id="name" required pattern=".{2,20}" >
-                                    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                                    <input type="text" class="form-control"  id="name" required pattern=".{2,20}" >
                                 </div>
 
                                 <div class="form-group">
                                     <label for="lastname" style="font-weight: bold">Last name </label>
-                                    <input type="text" class="form-control" th:field="*{last_name}" id="lastname" required pattern=".{2,20}">
-                                    <div th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}"></div>
+                                    <input type="text" class="form-control"  id="lastname" required pattern=".{2,20}">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="age" style="font-weight: bold">Age </label>
-                                    <input type="number" class="form-control" th:field="*{age}" min="1" max="100" id="age" required>
-                                    <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+                                    <input type="number" class="form-control"  min="1" max="100" id="age" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="email" style="font-weight: bold">Email </label>
-                                    <input type="email" class="form-control" th:field="*{email}" id="email" required>
-                                    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                                    <input type="email" class="form-control"  id="email" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="password" style="font-weight: bold">Password </label>
-                                    <input type="password" class="form-control" th:field="*{password}" id="password" required>
-                                    <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                                    <input type="password" class="form-control"  id="password" required>
                                 </div>
 
                                 <div class="form-group">
-
                                     <label for="role" style="font-weight: bold">Role </label>
-                                   <!-- <input type="" class="form-control" th:field="*{roles}" id="role">-->
 <br>
                                 <select  class="form-select" multiple
-                                         aria-label="multiple select example" size="2"  th:field="*{roles}" id="role" name="role" required>
+                                         aria-label="multiple select example" size="2"   id="role" name="role" required>
                                     <option value=1>ROLE_ADMIN</option>
                                     <option value=2>ROLE_USER</option>
                                 </select>
                                 </div>
-
-
-
 
                                 <button type="submit" class="btn btn-success addBtn" >Add new user</button>
                             </div>

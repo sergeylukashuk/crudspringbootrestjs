@@ -3,20 +3,20 @@ $(document).ready(function () {
     $("#addNewUser").submit(function (event) {
         event.preventDefault()
 
-        /* let listRoles = '';
-         for (let element of $("#role")) {
-             listRoles += " " ;
-         }*/
+        let role = [];
+        let arr = Array.from(document.getElementById("role").options).filter(option => option.selected).map(option => option.value)
+        for (let i = 0; i < arr.length; i++) {
+            role.push({id:arr[i]})
+        }
+
         let user = {
             name: $("#name").val(),
             last_name: $("#lastname").val(),
             age: $("#age").val(),
             email: $("#email").val(),
             password: $("#password").val(),
-            roles: null
-            //[{"id":1,"role":"ROLE_ADMIN"},{"id":2,"role":"ROLE_USER"}]
+            roles: role
         }
-
 
         fetch('/rest/admin/new',
             {
@@ -27,5 +27,4 @@ $(document).ready(function () {
             .then(result => console.log(result))
         window.location.href = "/admin"
     })
-
 })

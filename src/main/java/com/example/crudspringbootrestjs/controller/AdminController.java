@@ -1,6 +1,5 @@
 package com.example.crudspringbootrestjs.controller;
 
-import com.example.crudspringbootrestjs.model.User;
 import com.example.crudspringbootrestjs.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,35 +17,19 @@ public class AdminController {
     }
 
     @GetMapping
-    public String allUsers
-            (Model model)
-    {
+    public String allUsers (Model model) {
         model.addAttribute("users", userService.getAllUsers());
         return "index";
     }
 
     @GetMapping("/new")
-    public String newUser(@ModelAttribute("user") User user) {
-        return "/new";
+    public String newUser() {
+        return "new";
     }
 
-    /*@GetMapping("/{id}/edit")
-    public String editUser(Model model, @PathVariable("id") long id) {
-        model.addAttribute("user", userService.getUser(id));
-        return "users/edit";
-    }*/
-
     @GetMapping("/{id}")
-    public String getUser(@PathVariable("id") long id, Model model) {
-        model.addAttribute("user", userService.getUser(id));
+    public String getUser() {
         return "userpage";
     }
 
-
-
-    /*@PostMapping("/delete/{id}")
-    public String deleteUser(@PathVariable("id") long id) {
-        userService.deleteUser(id);
-        return "redirect:/admin";
-    }*/
 }

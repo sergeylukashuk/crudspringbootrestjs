@@ -43,10 +43,3 @@ public class RestController {
        userService.deleteUser(id);
     }
 }
-  //  fetch('/rest/edit',
-//  {
-//      method: 'PUT',
-//      headers: {'Content-Type': 'application/json'},
-//      body: JSON.stringify({email: 'qw@q.e', password:'qqq', name:'zzz', last_name:'xxx', age:'5'})
-//   })
-//      .then(result => console.log(result))
