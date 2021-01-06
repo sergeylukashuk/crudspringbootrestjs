@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/admin")
 public class AdminController {
 
-    private final UserService userService;
+   private final UserService userService;
 
     public AdminController(UserService userService) {
         this.userService = userService;
@@ -31,5 +31,4 @@ public class AdminController {
     public String getUser() {
         return "userpage";
     }
-
 }

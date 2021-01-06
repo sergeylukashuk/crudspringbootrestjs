@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $("#addNewUser").submit(function (event) {
+    $("#addNewUser").submit(async function (event) {
         event.preventDefault()
 
         let role = [];
@@ -18,7 +18,7 @@ $(document).ready(function () {
             roles: role
         }
 
-        fetch('/rest/admin/new',
+        await fetch('/api/admin/new',
             {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},

@@ -1,8 +1,8 @@
 $(document).ready(async function () {
 
-        let url = '/rest' + location.href.substring(location.href.indexOf('/admin'), location.href.length)
+        let url = '/api' + location.href.substring(location.href.indexOf('/admin'), location.href.length)
         let userId = $("#tableBody").data('id')
-        if (url.endsWith("users") == true) url = '/rest/admin/' + userId
+        if (url.endsWith("users") == true) url = '/api/admin/' + userId
         let users = await fetch(url).then(response => response.json())
 
         let listRoles = '';

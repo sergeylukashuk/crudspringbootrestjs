@@ -10,35 +10,36 @@ import java.util.List;
 
 
 @org.springframework.web.bind.annotation.RestController
-@RequestMapping("/rest/")
+@RequestMapping("api/admin")
 public class RestController {
 
     @Autowired
     private UserService userService;
 
-    @GetMapping("admin")
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+
+    @GetMapping("")
+    public ResponseEntity<List<User>> getAllUsers() {
+        return ResponseEntity.ok().body(userService.getAllUsers());
     }
 
-    @GetMapping("admin/{id}")
-    public User getUserById(@PathVariable("id") long id) {
-        return userService.getUser(id);
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable("id") long id) {
+        return ResponseEntity.ok().body(userService.getUser(id));
     }
 
-    @PostMapping("admin/new")
+    @PostMapping("/new")
     public ResponseEntity<User> createUser(@RequestBody User user){
         userService.addUser(user);
         return ResponseEntity.ok().body(user);
     }
 
-    @PutMapping("admin/edit")
+    @PutMapping("/edit")
     public ResponseEntity<User> editUser(@RequestBody User user){
         userService.updateUser(user);
         return ResponseEntity.ok().body(user);
     }
 
-    @DeleteMapping("admin/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteUserById(@PathVariable("id") long id) {
        userService.deleteUser(id);
     }

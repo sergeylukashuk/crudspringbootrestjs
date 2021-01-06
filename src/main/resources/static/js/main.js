@@ -5,7 +5,7 @@ $(document).ready(function () {
 
 async function createTable() {
 
-    let users = await fetch('/rest/admin').then(response => response.json())
+    let users = await fetch('/api/admin').then(response => response.json())
 
     for (let i = 0; i < users.length; i++) {
 
@@ -38,7 +38,7 @@ async function createTable() {
 
 async function getUserForEdit(id) {
 
-    let user = await fetch('/rest/admin/' + id).then(response => response.json());
+    let user = await fetch('/api/admin/' + id).then(response => response.json());
 
     $(".editForm #id").val(user.id);
     $(".editForm #name").val(user.name);
@@ -68,7 +68,7 @@ function editUser() {
             roles: role
         }
 
-        fetch('/rest/admin/edit/',
+        fetch('/api/admin/edit/',
             {
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
@@ -80,7 +80,7 @@ function editUser() {
 
 async function getUserForDelete(id) {
 
-    let user = await fetch('/rest/admin/' + id).then(response => response.json());
+    let user = await fetch('/api/admin/' + id).then(response => response.json());
 
     $(".deleteForm #id2").val(user.id);
     $(".deleteForm #firstName2").val(user.name);
@@ -90,7 +90,7 @@ async function getUserForDelete(id) {
 
     $("#delF").submit(function (event) {
         event.preventDefault()
-        fetch('/rest/admin/delete/' + id,
+        fetch('/api/admin/delete/' + id,
             {method: 'DELETE'});
         window.location.href = "/admin"
     })
