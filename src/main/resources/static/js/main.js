@@ -68,7 +68,7 @@ function editUser() {
             roles: role
         }
 
-        fetch('/api/admin/edit/',
+        fetch('/api/admin/',
             {
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
@@ -90,7 +90,7 @@ async function getUserForDelete(id) {
 
     $("#delF").submit(function (event) {
         event.preventDefault()
-        fetch('/api/admin/delete/' + id,
+        fetch('/api/admin/' + id,
             {method: 'DELETE'});
         window.location.href = "/admin"
     })

@@ -17,7 +17,7 @@ public class RestController {
     private UserService userService;
 
 
-    @GetMapping("")
+    @GetMapping()
     public ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity.ok().body(userService.getAllUsers());
     }
@@ -27,19 +27,19 @@ public class RestController {
         return ResponseEntity.ok().body(userService.getUser(id));
     }
 
-    @PostMapping("/new")
+    @PostMapping()
     public ResponseEntity<User> createUser(@RequestBody User user){
         userService.addUser(user);
         return ResponseEntity.ok().body(user);
     }
 
-    @PutMapping("/edit")
+    @PutMapping()
     public ResponseEntity<User> editUser(@RequestBody User user){
         userService.updateUser(user);
         return ResponseEntity.ok().body(user);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public void deleteUserById(@PathVariable("id") long id) {
        userService.deleteUser(id);
     }

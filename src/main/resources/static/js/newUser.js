@@ -18,7 +18,7 @@ $(document).ready(function () {
             roles: role
         }
 
-        await fetch('/api/admin/new',
+        await fetch('/api/admin',
             {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
